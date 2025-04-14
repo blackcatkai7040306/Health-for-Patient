@@ -1,76 +1,87 @@
-# AI-Assisted Web Development Support Hub
+<h1>Telehealth Platform</h1>
 
-![Project Architecture](https://mermaid.ink/svg/eyJjb2RlIjoiZ3JhcGggVERcbiAgQVtBSS1Bc3Npc3RlZCBJREUgKFdpbmRzdXJmKV0gLS0-IEJbRnJvbnRlbmQ6IFJlYWN0L1RhaWx3aW5kL1R5cGVTY3JpcHRdXG4gIEIgLS0-IENbQmFja2VuZDogU3VwYWJhc2VdXG4gIEMgLS0-IERbRGVwbG95bWVudDogVmVyY2VsXVxuICBEIC0tPiBFW0xpdmUgUHJvZHVjdGlvbl0iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
+<h2>About The Project</h2>
+<p>
+This telehealth platform is a full-stack solution built with Laravel (backend), Angular/React (frontend), and AWS cloud infrastructure. The system enables remote healthcare services including virtual consultations, patient management, and medical record handling.
+</p>
 
-## About This Project
+<p>
+Key technical components:
+<ul>
+<li>Laravel backend with RESTful API architecture</li>
+<li>Angular/React hybrid frontend for admin/patient portals</li>
+<li>AWS services (EC2, RDS, S3) for deployment and storage</li>
+<li>JWT-based authentication system</li>
+<li>Real-time communication features using WebSockets</li>
+</ul>
+</p>
 
-This repository serves as the central hub for supporting multiple AI-assisted web projects built with modern technologies. The primary focus is providing development expertise where AI tools reach their limits, particularly in:
+<h3>Architecture Diagram</h3>
+<pre>
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React Frontend│───▶│ Laravel Backend │───▶│   AWS Services  │
+│  (Patient Portal)│    │ (API Gateway)   │    │ (EC2, RDS, S3)  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+       ▲                       ▲
+       │                       │
+┌─────────────────┐    ┌─────────────────┐
+│ Angular Admin   │    │ Mobile Clients  │
+│    Portal       │    │ (React Native)  │
+└─────────────────┘    └─────────────────┘
+</pre>
 
-1. **Debugging Complex Issues**: Addressing edge cases where AI-generated code fails in production (e.g., Supabase row-level security misconfigurations, React hook dependencies)
+<h2>Technical Challenges</h2>
+<h3>1. Hybrid Frontend Integration</h3>
+<p>
+The combination of Angular (for admin) and React (for patients) required careful state management. We implemented:
+<ul>
+<li>Shared service layer for common functionality</li>
+<li>Custom webpack configuration for shared dependencies</li>
+<li>Route-based code splitting</li>
+</ul>
+</p>
 
-2. **Deployment Optimization**: Solving Vercel deployment challenges like:
-   - Environment variable management
-   - Serverless function cold starts
-   - Proper caching headers for dynamic content
+<h3>2. AWS Deployment Issues</h3>
+<p>
+Faced CI/CD pipeline failures due to:
+<ul>
+<li>Environment variable mismatches between local and AWS</li>
+<li>Database connection timeouts during auto-scaling</li>
+<li>S3 bucket permission conflicts</li>
+</ul>
+Resolved by implementing:
+<ul>
+<li>AWS Parameter Store for centralized configuration</li>
+<li>Connection pooling for RDS instances</li>
+<li>IAM role-based access policies</li>
+</ul>
+</p>
 
-3. **Architecture Guidance**: Recommending improvements to AI-generated structures, such as:
-   - Efficient data fetching patterns (SWR vs React Query)
-   - Supabase storage optimization strategies
-   - Authentication flow enhancements
+<h3>3. Real-time Communication</h3>
+<p>
+WebSocket implementation challenges included:
+<ul>
+<li>Session persistence across load balancers</li>
+<li>Mobile client disconnection handling</li>
+<li>Bandwidth optimization for video streams</li>
+</ul>
+</p>
 
-## Technical Challenges Addressed
+<h2>Development Setup</h2>
+<ol>
+<li>Clone repository: <code>git clone [repository-url]</code></li>
+<li>Install dependencies: <code>composer install && npm install</code></li>
+<li>Configure AWS credentials in .env file</li>
+<li>Run migrations: <code>php artisan migrate</code></li>
+</ol>
 
-### Common Pain Points
-
-1. **AI-Generated Code Limitations**:
-   - Component re-rendering issues due to improper memoization
-   - TypeScript type inference gaps in generated code
-   - Asynchronous state management anti-patterns
-
-2. **Supabase-Specific Issues**:
-   - Realtime subscription memory leaks
-   - JWT refresh token handling
-   - Bulk insert performance optimization
-
-3. **Vercel Deployment Quirks**:
-   - Edge Function vs Serverless Function tradeoffs
-   - Proper ISR configuration for dynamic routes
-   - Handling CORS in serverless environments
-
-## Development Approach
-
-The support methodology follows three phases:
-
-1. **Triage**:
-   - Reproduce reported issues in isolated environments
-   - Analyze Windsurf-generated code for common antipatterns
-   - Check Supabase logs for RLS policy violations
-
-2. **Solution Design**:
-   - Propose multiple solutions with tradeoff analysis
-   - Implement least-disruptive fixes first
-   - Document architectural decisions
-
-3. **Knowledge Transfer**:
-   - Create annotated code samples
-   - Record short Loom explanations
-   - Maintain troubleshooting playbook
-
-## Technology Stack
-
-| Component       | Technology               | Version  | Purpose                          |
-|-----------------|--------------------------|----------|----------------------------------|
-| Frontend        | React + TypeScript       | 18.2+    | Core application framework       |
-| Styling         | Tailwind CSS             | 3.3+     | Utility-first CSS                |
-| Backend         | Supabase                 | 2.0+     | Database/auth/storage            |
-| Deployment      | Vercel                   | -        | Serverless hosting               |
-| Development     | Windsurf AI              | -        | AI-assisted coding               |
-
-## Getting Support
-
-For efficient troubleshooting, please provide:
-1. Relevant code snippets with context
-2. Exact error messages
-3. Steps to reproduce
-4. Screenshots of unexpected behavior
-5. Windsurf prompt history (when applicable)
+<h2>Looking For Contributors</h2>
+<p>
+We seek experienced developers with:
+<ul>
+<li>Expertise in Laravel/Angular/React</li>
+<li>AWS deployment knowledge</li>
+<li>Understanding of healthcare compliance (HIPAA)</li>
+<li>Long-term commitment to the project</li>
+</ul>
+</p>
