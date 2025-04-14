@@ -1,8 +1,8 @@
-<h1>Telehealth Platform</h1>
+<h1>Health for Patient Platform</h1>
 
 <h2>About The Project</h2>
 <p>
-This telehealth platform is a full-stack solution built with Laravel (backend), Angular/React (frontend), and AWS cloud infrastructure. The system enables remote healthcare services including virtual consultations, patient management, and medical record handling.
+This Healthcare Patient platform is a full-stack solution built with Next. The system enables remote healthcare services including virtual consultations, patient management, and medical record handling.
 </p>
 
 <p>
@@ -19,13 +19,13 @@ Key technical components:
 <h3>Architecture Diagram</h3>
 <pre>
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   React Frontend│───▶│ Laravel Backend │───▶│   AWS Services  │
+│   React Frontend│───▶│ Express Backend │───▶│   AWS Services  │
 │  (Patient Portal)│    │ (API Gateway)   │    │ (EC2, RDS, S3)  │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
        ▲                       ▲
        │                       │
 ┌─────────────────┐    ┌─────────────────┐
-│ Angular Admin   │    │ Mobile Clients  │
+│  Admin   │           │ Mobile Clients 
 │    Portal       │    │ (React Native)  │
 └─────────────────┘    └─────────────────┘
 </pre>
