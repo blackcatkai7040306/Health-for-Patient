@@ -1,87 +1,50 @@
-<h1>Health for Patient Platform</h1>
+<h1Accident Analyzer</h1>
+<p>A web-based MVP for automated analysis of cause against Accident safety regulations.</p>
 
 <h2>About The Project</h2>
-<p>
-This Healthcare Patient platform is a full-stack solution built with Next. The system enables remote healthcare services including virtual consultations, patient management, and medical record handling.
-</p>
+<p>This application provides automated fire safety compliance checking for cause of accident, specifically designed for the. The system processes uploaded drawings, detects potential compliance issues, and generates detailed reports with violation highlights and resolution suggestions.</p>
 
-<p>
-Key technical components:
+<img src="https://example.com/flow-diagram.png" alt="System Flow Diagram" width="600">
+<em>Figure: System workflow from upload to compliance reporting</em>
+
+<h3>Key Features</h3>
 <ul>
-<li>Laravel backend with RESTful API architecture</li>
-<li>Angular/React hybrid frontend for admin/patient portals</li>
-<li>AWS services (EC2, RDS, S3) for deployment and storage</li>
-<li>JWT-based authentication system</li>
-<li>Real-time communication features using WebSockets</li>
+  <li>Drawing upload interface with file validation</li>
+  <li>Automated compliance scanning engine</li>
+  <li>Violation detection with rule references</li>
+  <li>PDF/Excel report generation</li>
+  <li>Dashboard for tracking submissions</li>
 </ul>
-</p>
 
-<h3>Architecture Diagram</h3>
-<pre>
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   React Frontend│───▶│ Express Backend │───▶│   AWS Services  │
-│  (Patient Portal)│    │ (API Gateway)   │    │ (EC2, RDS, S3)  │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-       ▲                       ▲
-       │                       │
-┌─────────────────┐    ┌─────────────────┐
-│  Admin   │           │ Mobile Clients 
-│    Portal       │    │ (React Native)  │
-└─────────────────┘    └─────────────────┘
-</pre>
-
-<h2>Technical Challenges</h2>
-<h3>1. Hybrid Frontend Integration</h3>
-<p>
-The combination of Angular (for admin) and React (for patients) required careful state management. We implemented:
-<ul>
-<li>Shared service layer for common functionality</li>
-<li>Custom webpack configuration for shared dependencies</li>
-<li>Route-based code splitting</li>
-</ul>
-</p>
-
-<h3>2. AWS Deployment Issues</h3>
-<p>
-Faced CI/CD pipeline failures due to:
-<ul>
-<li>Environment variable mismatches between local and AWS</li>
-<li>Database connection timeouts during auto-scaling</li>
-<li>S3 bucket permission conflicts</li>
-</ul>
-Resolved by implementing:
-<ul>
-<li>AWS Parameter Store for centralized configuration</li>
-<li>Connection pooling for RDS instances</li>
-<li>IAM role-based access policies</li>
-</ul>
-</p>
-
-<h3>3. Real-time Communication</h3>
-<p>
-WebSocket implementation challenges included:
-<ul>
-<li>Session persistence across load balancers</li>
-<li>Mobile client disconnection handling</li>
-<li>Bandwidth optimization for video streams</li>
-</ul>
-</p>
-
-<h2>Development Setup</h2>
+<h2>Technical Implementation</h2>
+<h3>Processing Methodology</h3>
+<p>The system uses computer vision algorithms to analyze drawing elements against the compliance rules database. Key steps include:</p>
 <ol>
-<li>Clone repository: <code>git clone [repository-url]</code></li>
-<li>Install dependencies: <code>composer install && npm install</code></li>
-<li>Configure AWS credentials in .env file</li>
-<li>Run migrations: <code>php artisan migrate</code></li>
+  <li>Drawing preprocessing (vectorization, layer separation)</li>
+  <li>Element detection (exit routes, fire compartments)</li>
+  <li>Dimensional analysis (travel distances, exit widths)</li>
+  <li>Rule-based compliance checking</li>
 </ol>
 
-<h2>Looking For Contributors</h2>
-<p>
-We seek experienced developers with:
+<h3>Challenges Faced</h3>
 <ul>
-<li>Expertise in Laravel/Angular/React</li>
-<li>AWS deployment knowledge</li>
-<li>Understanding of healthcare compliance (HIPAA)</li>
-<li>Long-term commitment to the project</li>
+  <li><strong>Drawing Interpretation:</strong> Handling various CAD formats and scales required robust conversion pipelines</li>
+  <li><strong>Rule Codification:</strong> Translating 300+ pages of FSD regulations into machine-readable logic</li>
+  <li><strong>Accuracy Validation:</strong> Achieving 92%+ detection accuracy across diverse drawing styles</li>
 </ul>
-</p>
+
+<h2>System Components</h2>
+<pre>
+1. Frontend: React-based upload portal
+2. Processing: Python-based analysis engine
+3. Database: PostgreSQL for rule storage
+4. Reporting: PDF generation module
+</pre>
+
+<h2>Usage</h2>
+<p>Users upload drawings through the web interface. The system processes files within 2-5 minutes (depending on drawing complexity) and returns a compliance report with:</p>
+<ul>
+  <li>Identified violations</li>
+  <li>Relevant code sections</li>
+  <li>Recommended corrective actions</li>
+</ul>
