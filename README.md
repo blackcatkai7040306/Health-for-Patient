@@ -1,10 +1,9 @@
-<h1Accident Analyzer</h1>
+<h2>Accident Analyzer</h2>
 <p>A web-based MVP for automated analysis of cause against Accident safety regulations.</p>
 
 <h2>About The Project</h2>
 <p>This application provides automated fire safety compliance checking for cause of accident, specifically designed for the. The system processes uploaded drawings, detects potential compliance issues, and generates detailed reports with violation highlights and resolution suggestions.</p>
 
-<img src="https://example.com/flow-diagram.png" alt="System Flow Diagram" width="600">
 <em>Figure: System workflow from upload to compliance reporting</em>
 
 <h3>Key Features</h3>
